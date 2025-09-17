@@ -11,7 +11,7 @@ This repository provides a ready to use Docker setup for running two popular pro
 ### Build and Run
 1. Clone this repository:
    ```sh
-   git clone <your-repo-url>
+   git clone https://github.com/mq1n/ProxyBox
    cd proxy
    ```
 2. Build and start the services:
