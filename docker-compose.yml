@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  squid:
+    image: sameersbn/squid:latest
+    container_name: squid
+    restart: unless-stopped
+    ports:
+    - "3128:3128"
+    volumes:
+      - ./squid:/etc/squid:ro
+    networks:
+    - proxy-net
+
+  socks5:
+    image: serjs/go-socks5-proxy:latest
+    container_name: socks5
+    restart: unless-stopped
+    ports:
+    - "1080:1080"
+    volumes:
+    - ./dante/danted.conf:/etc/danted.conf:ro
+    networks:
+    - proxy-net
+
+networks:
+  proxy-net:
+    driver: bridge
